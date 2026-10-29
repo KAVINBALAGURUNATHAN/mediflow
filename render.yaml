@@ -1,0 +1,51 @@
+# Render blueprint for the Express + Socket.IO backend.
+#
+# Socket.IO needs a long-lived connection, so this runs as a normal web
+# service rather than a serverless function - that is also why the backend
+# is not deployed to Vercel alongside the frontend.
+#
+# Secrets are marked `sync: false` so Render prompts for them in the
+# dashboard instead of them living in this file.
+services:
+  - type: web
+    name: queue-cure-api
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /hospitals
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      # Symptom -> specialization matching. aiService tries these in order
+      # (OpenAI, then Groq, then Anthropic) and falls through on failure, so
+      # one provider running out of quota does not disable the feature.
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      # Mail. Resend is used in preference to SMTP because Render blocks
+      # outbound SMTP ports, so Gmail cannot connect from here.
+      - key: BREVO_API_KEY
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: MAIL_FROM
+        sync: false
+      - key: APP_URL
+        sync: false
+      # Comma-separated browser origins permitted to call the API. Requests
+      # with no Origin (native app, server-to-server) are allowed regardless.
+      - key: ALLOWED_ORIGINS
+        value: http://localhost:5173

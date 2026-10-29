@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Environment / secrets - never commit real API keys, DB URIs, or JWT secrets.
+# The .env.example templates ARE committed.
+.env
+.env.*
+!.env.example
+
+# Build output
+dist/
+build/
+
+# Android native project - generated/build artifacts and machine-specific config
+frontend/android/build/
+frontend/android/app/build/
+frontend/android/.gradle/
+frontend/android/.kotlin/
+frontend/android/.idea/
+frontend/android/local.properties
+frontend/android/capacitor-cordova-android-plugins/build/
+frontend/android/app/src/main/assets/public/
+*.apk
+*.aab
+*.keystore
+*.jks
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Playwright / test run artifacts
+test-results/
+playwright-report/
+blob-report/
+frontend/playwright/.cache/

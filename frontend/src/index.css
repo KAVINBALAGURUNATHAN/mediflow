@@ -1,0 +1,389 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply text-slate-800 dark:text-slate-100 transition-colors duration-200;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  }
+
+  * {
+    @apply border-slate-200/80 dark:border-slate-700/50;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary-500/50 ring-offset-2 ring-offset-white dark:ring-offset-surface;
+  }
+}
+
+@layer components {
+  /* ── App background - flat, no gradient soup ── */
+  .app-gradient {
+    @apply min-h-screen bg-background dark:bg-surface;
+    transition: background 0.2s ease;
+  }
+
+  .app-gradient-waiting {
+    @apply min-h-screen bg-surface;
+  }
+
+  /* ── Surfaces ──
+     Flat everywhere: solid surface color + a hairline border + a soft,
+     single-layer, non-colored shadow. No blur, no glow, no hover-lift. */
+  .glass {
+    @apply bg-white dark:bg-surface-card border border-slate-200 dark:border-surface-border
+      shadow-glass dark:shadow-glass-dark;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .glass-card {
+    @apply bg-white dark:bg-surface-card rounded-xl
+      border border-slate-200 dark:border-surface-border
+      shadow-glass dark:shadow-glass-dark;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .glass-card-hover {
+    @apply glass-card hover:border-slate-300 dark:hover:border-slate-600;
+  }
+
+  .glass-card-dark {
+    @apply bg-surface-panel rounded-xl border border-surface-border shadow-glass-lg;
+  }
+
+  /* ── Buttons - solid, single accent, darken on hover, no glow ── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5
+      bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium
+      rounded-lg transition-colors duration-150
+      disabled:opacity-40 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5
+      bg-transparent text-slate-700 dark:text-slate-200 text-sm font-medium
+      rounded-lg border border-slate-300 dark:border-surface-border
+      hover:bg-slate-50 dark:hover:bg-white/[0.04]
+      transition-colors duration-150
+      disabled:opacity-40 disabled:pointer-events-none;
+  }
+
+  .btn-icon {
+    @apply inline-flex items-center justify-center w-9 h-9 rounded-lg
+      bg-transparent border border-slate-300 dark:border-surface-border
+      text-slate-600 dark:text-slate-300
+      hover:bg-slate-50 dark:hover:bg-white/[0.04]
+      transition-colors duration-150;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5
+      bg-transparent text-slate-700 dark:text-slate-200 text-sm font-medium
+      rounded-lg border border-slate-300 dark:border-surface-border
+      hover:bg-slate-50 dark:hover:bg-white/[0.04]
+      transition-colors duration-150
+      disabled:opacity-40 disabled:pointer-events-none;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5
+      bg-transparent text-slate-600 dark:text-slate-300 text-sm font-medium
+      rounded-lg hover:bg-slate-100 dark:hover:bg-white/[0.06]
+      transition-colors duration-150
+      disabled:opacity-40 disabled:pointer-events-none;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5
+      bg-danger-500 hover:bg-danger-600 text-white text-sm font-medium
+      rounded-lg transition-colors duration-150
+      disabled:opacity-40 disabled:pointer-events-none;
+  }
+
+  .btn-success {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5
+      bg-success-500 hover:bg-success-600 text-white text-sm font-medium
+      rounded-lg transition-colors duration-150
+      disabled:opacity-40 disabled:pointer-events-none;
+  }
+
+  .btn-warning {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5
+      bg-warning-600 hover:bg-warning-700 text-white text-sm font-medium
+      rounded-lg transition-colors duration-150
+      disabled:opacity-40 disabled:pointer-events-none;
+  }
+
+  /* Tactile scale-down active state on all buttons */
+  .btn-primary, .btn-secondary, .btn-icon, .btn-outline, .btn-ghost, .btn-danger, .btn-success, .btn-warning {
+    transition: transform 120ms var(--ease-out), background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease !important;
+  }
+
+  .btn-primary:active, .btn-secondary:active, .btn-icon:active, .btn-outline:active, .btn-ghost:active, .btn-danger:active, .btn-success:active, .btn-warning:active {
+    transform: scale(0.97);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-primary:active, .btn-secondary:active, .btn-icon:active, .btn-outline:active, .btn-ghost:active, .btn-danger:active, .btn-success:active, .btn-warning:active {
+      transform: none !important;
+    }
+
+    /* Keep opacity feedback (still communicates "this appeared"), drop all
+       movement/scale - per AUDIT.md Category 6: "fewer and gentler
+       animations, not zero". */
+    .animate-fade-in,
+    .animate-slide-up,
+    .animate-slide-down,
+    .animate-scale-in,
+    .animate-token-pop {
+      animation-name: fadeIn !important;
+      animation-duration: 150ms !important;
+    }
+
+    .animate-pulse-glow,
+    .animate-shimmer,
+    .animate-pulse-slow {
+      animation: none !important;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .group:hover .group-hover-scale-105 {
+      transform: scale(1.05);
+    }
+  }
+
+  /* ── Card (plain, no glass) ── */
+  .card {
+    @apply bg-white dark:bg-surface-card rounded-xl border border-slate-200
+      dark:border-surface-border shadow-card;
+  }
+
+  /* ── Inputs ── */
+  .input {
+    @apply w-full px-4 py-2.5 text-sm text-slate-800 dark:text-slate-100
+      bg-white dark:bg-surface border border-slate-300 dark:border-surface-border
+      rounded-lg placeholder-slate-400 dark:placeholder-slate-500
+      focus:outline-none focus:ring-2 focus:ring-primary-500/30 focus:border-primary-500
+      transition-colors duration-150;
+  }
+
+  .input-dark {
+    @apply w-full px-4 py-2.5 text-sm text-white bg-white/5 border border-white/10
+      rounded-lg placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary-500/30
+      focus:border-primary-500 transition-colors duration-150;
+  }
+
+  /* ── Status badges - pill, low-opacity tint, full-opacity text, no border ── */
+  .badge-waiting {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium
+      bg-warning-100 text-warning-700 dark:bg-warning-500/15 dark:text-warning-400
+      transition-colors duration-150;
+  }
+
+  .badge-serving {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium
+      bg-violet-100 text-violet-700 dark:bg-violet-500/15 dark:text-violet-400
+      transition-colors duration-150;
+  }
+
+  .badge-completed {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium
+      bg-success-100 text-success-700 dark:bg-success-500/15 dark:text-success-400
+      transition-colors duration-150;
+  }
+
+  .badge-cancelled {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium
+      bg-danger-100 text-danger-700 dark:bg-danger-500/15 dark:text-danger-400
+      transition-colors duration-150;
+  }
+
+  .badge-neutral {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium
+      bg-slate-100 text-slate-600 dark:bg-slate-700/40 dark:text-slate-300
+      transition-colors duration-150;
+  }
+
+  /* "Booked" (spec) = an appointment that exists but hasn't been checked in
+     yet - tokenNumber is still null. There's no literal "Booked" status in
+     the data model (see getDisplayStatus in DoctorDashboard.jsx), so this
+     badge represents that real condition rather than a fabricated status. */
+  .badge-booked {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium
+      bg-primary-100 text-primary-700 dark:bg-primary-500/15 dark:text-primary-400;
+  }
+
+  /* ── Doctor availability badges ── */
+  .badge-available {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium
+      bg-success-100 text-success-700 dark:bg-success-500/15 dark:text-success-400;
+  }
+
+  .badge-limited {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium
+      bg-warning-100 text-warning-700 dark:bg-warning-500/15 dark:text-warning-400;
+  }
+
+  .badge-unavailable {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium
+      bg-danger-100 text-danger-700 dark:bg-danger-500/15 dark:text-danger-400;
+  }
+
+  /* ── Priority badges ── */
+  .badge-priority-emergency {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[10px] font-semibold uppercase tracking-wide
+      bg-danger-100 text-danger-700 dark:bg-danger-500/15 dark:text-danger-400;
+  }
+
+  .badge-priority-high {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[10px] font-semibold uppercase tracking-wide
+      bg-warning-100 text-warning-700 dark:bg-warning-500/15 dark:text-warning-400;
+  }
+
+  .badge-priority-normal {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[10px] font-semibold uppercase tracking-wide
+      bg-success-100 text-success-700 dark:bg-success-500/15 dark:text-success-400;
+  }
+
+  .badge-priority-low {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[10px] font-semibold uppercase tracking-wide
+      bg-slate-100 text-slate-600 dark:bg-slate-700/30 dark:text-slate-300;
+  }
+
+  /* ── Utilities ── */
+  .skeleton {
+    @apply rounded-lg bg-gradient-to-r from-slate-200/60 via-slate-100 to-slate-200/60
+      dark:from-slate-700/40 dark:via-slate-600/30 dark:to-slate-700/40
+      bg-[length:200%_100%] animate-shimmer;
+  }
+
+  .section-title {
+    @apply text-sm font-semibold text-slate-700 dark:text-slate-200 flex items-center gap-2;
+  }
+
+  /* Functional, not decorative - shows real Socket.IO connection state.
+     Teal is the "rare secondary accent" role for small tags like this,
+     kept distinct from primary blue so it doesn't compete with buttons. */
+  .live-dot {
+    @apply relative flex h-2.5 w-2.5;
+  }
+
+  .live-dot::before {
+    content: '';
+    @apply absolute inline-flex h-full w-full rounded-full bg-secondary-500 opacity-75 animate-live-ping;
+  }
+
+  .live-dot::after {
+    content: '';
+    @apply relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary-500;
+  }
+
+  .page-heading {
+    @apply text-2xl sm:text-3xl font-semibold text-slate-900 dark:text-white tracking-[-0.01em];
+  }
+
+  .page-subheading {
+    @apply text-sm sm:text-base text-slate-500 dark:text-slate-400 mt-1;
+  }
+
+  .stat-value {
+    @apply text-3xl sm:text-4xl font-semibold leading-none tracking-tight;
+  }
+
+  .hero-token {
+    @apply font-semibold leading-none tracking-tight animate-token-pop;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .table-sticky-head thead {
+    @apply sticky top-0 z-10;
+  }
+
+  .table-sticky-head thead tr {
+    @apply bg-slate-50 dark:bg-surface-secondary
+      border-b border-slate-200/80 dark:border-slate-700/50;
+  }
+
+  .queue-progress-track {
+    @apply h-2 rounded-full bg-slate-200/80 dark:bg-slate-700/50 overflow-hidden;
+  }
+
+  .queue-progress-fill {
+    @apply h-full rounded-full bg-primary-600 transition-[width] duration-500 ease-out;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300/80 dark:bg-slate-600/80 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400 dark:bg-slate-500;
+}
+
+/* ── ConfirmModal Custom transitions ── */
+.modal-backdrop {
+  opacity: 1;
+  transition: opacity 200ms var(--ease-out);
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+.modal-backdrop[data-state="closed"] {
+  opacity: 0;
+}
+
+.modal-panel {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out);
+
+  @starting-style {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+.modal-panel[data-state="closed"] {
+  opacity: 0;
+  transform: scale(0.97);
+}
+
+/* ── Toast Notification transitions ── */
+.toast-item {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: transform 200ms var(--ease-out), opacity 200ms var(--ease-out);
+
+  @starting-style {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+}
+.toast-item[data-dismissing="true"] {
+  opacity: 0;
+  transform: translateY(-8px) scale(0.97);
+}
