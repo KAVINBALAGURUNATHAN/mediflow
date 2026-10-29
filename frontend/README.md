@@ -1,6 +1,6 @@
-# Queue Cure Frontend
+# MediFlow Frontend
 
-Frontend for Queue Cure, a real-time healthcare queue management system.
+Frontend for MediFlow, a real-time healthcare queue management system.
 
 ## Tech Stack
 - React
@@ -16,4 +16,4 @@ Frontend for Queue Cure, a real-time healthcare queue management system.
 Vercel
 
 ## Live Demo
-https://queue-cure-frontend.vercel.app
+https://mediflow.vercel.app

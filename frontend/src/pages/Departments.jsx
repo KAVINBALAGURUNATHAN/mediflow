@@ -65,7 +65,7 @@ function Departments() {
             </h1>
             <p className="text-base text-[#6B7280] leading-relaxed max-w-xl">
               Browse our specialties and find the right doctor for your needs. Every department is
-              staffed by verified specialists across every Queue Cure branch.
+              staffed by verified specialists across every MediFlow branch.
             </p>
           </div>
 

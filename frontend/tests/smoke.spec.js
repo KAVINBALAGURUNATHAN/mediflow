@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('smoke', () => {
-  test('Queue Cure opens', async ({ page }) => {
+  test('MediFlow opens', async ({ page }) => {
     await page.goto('/');
-    await expect(page).toHaveTitle(/queue cure/i);
+    await expect(page).toHaveTitle(/mediflow/i);
   });
 
   test('the landing page renders its own content, not an error boundary', async ({
@@ -13,7 +13,7 @@ test.describe('smoke', () => {
     page.on('pageerror', (err) => failures.push(err.message));
 
     await page.goto('/');
-    await expect(page.locator('body')).toContainText(/queue cure/i);
+    await expect(page.locator('body')).toContainText(/mediflow/i);
 
     // A React app that throws during render still returns HTTP 200 with a
     // valid title, so the title assertion above cannot catch it on its own.

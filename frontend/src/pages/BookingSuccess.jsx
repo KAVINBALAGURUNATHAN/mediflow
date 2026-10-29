@@ -44,7 +44,7 @@ function BookingSuccess() {
 
   const downloadReceipt = () => {
     const receiptContent = `
-QUEUE CURE - APPOINTMENT RECEIPT
+MEDIFLOW - APPOINTMENT RECEIPT
 ================================
 
 Booking ID: ${appointment.bookingId || 'N/A'}
@@ -58,7 +58,7 @@ Appointment Date: ${new Date(appointment.appointmentDate).toLocaleDateString('en
 Time Slot: ${appointment.slot}
 Phone: ${appointment.phone}
 
-Thank you for choosing Queue Cure!
+Thank you for choosing MediFlow!
     `.trim();
 
     const blob = new Blob([receiptContent], { type: 'text/plain' });

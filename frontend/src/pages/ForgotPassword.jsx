@@ -57,9 +57,9 @@ function ForgotPassword({ role = "patient" }) {
         >
           <Link to="/" className="inline-flex items-center gap-2 mb-6">
             <div className="w-8 h-8 rounded-lg bg-primary-600 flex items-center justify-center">
-              <span className="text-white font-bold text-xs">QC</span>
+              <span className="text-white font-bold text-xs">MF</span>
             </div>
-            <span className="text-lg font-semibold text-gray-900 tracking-tight">Queue Cure</span>
+            <span className="text-lg font-semibold text-gray-900 tracking-tight">MediFlow</span>
           </Link>
           <h1 className="text-[28px] font-bold text-[#111827] tracking-tight">
             {sent ? "Check your email" : "Forgot your password?"}

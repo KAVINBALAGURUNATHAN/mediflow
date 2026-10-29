@@ -4,10 +4,10 @@ import API from "../api/api";
 const BranchContext = createContext(null);
 const STORAGE_KEY = "selectedBranch";
 
-// Which Queue Cure branch the patient is
+// Which MediFlow branch the patient is
 // currently using. Persisted to localStorage so it survives reloads and
 // future visits, per the "remember the selected branch" requirement.
-// Queue Cure only ever serves one hospital brand today - this is a branch
+// MediFlow only ever serves one hospital brand today - this is a branch
 // picker, never a hospital search - so the only thing stored is a single
 // Hospital document (one row from the `Hospital` collection, each row being
 // one branch).

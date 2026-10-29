@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect } from 'react';
 
 const ThemeContext = createContext(null);
 
-// Queue Cure's application is light-only, corporate/clinical design -
+// MediFlow's application is light-only, corporate/clinical design -
 // there is no dark mode toggle anywhere in the UI. This provider still
 // exists (rather than deleting it and every dark: Tailwind class across the
 // codebase in one pass) so `dark:` variants harmlessly never activate,

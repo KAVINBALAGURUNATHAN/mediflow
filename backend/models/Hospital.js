@@ -15,7 +15,7 @@ const hospitalSchema = new mongoose.Schema(
     },
 
     // Which branch of `name` this record is, e.g. "Downtown Clinic" for a
-    // "Queue Cure" that operates multiple locations under one brand.
+    // "MediFlow" that operates multiple locations under one brand.
     // Optional - single-location hospitals can leave this blank.
     branch: {
       type: String,

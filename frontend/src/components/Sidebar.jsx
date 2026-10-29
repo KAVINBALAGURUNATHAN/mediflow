@@ -213,7 +213,7 @@ const Sidebar = ({ isOpen, onClose }) => {
 
   const handleLogout = () => {
     setConfirmModal({
-      title: 'Log out of Queue Cure?',
+      title: 'Log out of MediFlow?',
       message: `You will be signed out of the ${displayRole} portal.`,
       variant: 'warning',
       confirmLabel: 'Log out',
@@ -405,7 +405,7 @@ const Sidebar = ({ isOpen, onClose }) => {
           <BrandMark className="w-9 h-9 shrink-0 group-hover-scale-105 transition duration-200" />
           <div className="min-w-0">
             <span className="font-bold text-slate-900 dark:text-white text-sm tracking-tight block leading-tight truncate">
-              Queue Cure
+              MediFlow
             </span>
             <span className="text-[10px] font-bold text-primary-600 dark:text-primary-400 uppercase tracking-[0.12em]">
               Digital Appointment Platform

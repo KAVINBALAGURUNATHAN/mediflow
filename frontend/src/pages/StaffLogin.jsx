@@ -67,7 +67,7 @@ function StaffLogin() {
             className="inline-flex items-center gap-1.5 text-[13px] font-medium text-gray-500 hover:text-gray-700 transition-colors mb-6"
           >
             <ArrowLeft weight="bold" className="w-4 h-4" aria-hidden="true" />
-            Back to Queue Cure website
+            Back to MediFlow website
           </Link>
 
           <h1 className="text-[28px] sm:text-[32px] font-bold text-[#111827] tracking-tight">
@@ -118,7 +118,7 @@ function StaffLogin() {
       <footer className="border-t border-slate-200">
         <div className="max-w-lg mx-auto px-5 py-5">
           <p className="text-[11px] text-gray-500">
-            © {new Date().getFullYear()} Queue Cure · Staff Portal
+            © {new Date().getFullYear()} MediFlow · Staff Portal
           </p>
         </div>
       </footer>

@@ -82,7 +82,7 @@ function ReceptionistLogin() {
             <Headset weight="duotone" className="w-5 h-5 text-white" />
           </div>
           <div className="leading-tight">
-            <p className="text-[15px] font-semibold text-white tracking-tight">Queue Cure</p>
+            <p className="text-[15px] font-semibold text-white tracking-tight">MediFlow</p>
             <p className="text-xs text-white/70">Staff Portal</p>
           </div>
         </motion.div>
@@ -100,7 +100,7 @@ function ReceptionistLogin() {
           </h2>
           <p className="mt-4 text-[15px] leading-relaxed text-white/75">
             Sign in to register walk-ins, issue tokens and keep the live queue moving — the same
-            workspace your team uses across every Queue Cure branch.
+            workspace your team uses across every MediFlow branch.
           </p>
         </motion.div>
 
@@ -124,7 +124,7 @@ function ReceptionistLogin() {
             className="inline-flex items-center gap-2 text-[13px] font-medium text-white hover:text-white/80 transition-colors rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
           >
             <ArrowLeft weight="bold" className="w-4 h-4" />
-            Back to Queue Cure website
+            Back to MediFlow website
           </button>
         </motion.div>
       </aside>
@@ -143,7 +143,7 @@ function ReceptionistLogin() {
               </div>
               <div className="leading-tight">
                 <p className="text-[15px] font-semibold text-[#111827] tracking-tight">
-                  Queue Cure
+                  MediFlow
                 </p>
                 <p className="text-xs text-[#6B7280]">Staff Portal</p>
               </div>
@@ -264,7 +264,7 @@ function ReceptionistLogin() {
               className="lg:hidden mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-primary-600 hover:text-primary-700 transition-colors"
             >
               <ArrowLeft weight="bold" className="w-3.5 h-3.5" />
-              Back to Queue Cure website
+              Back to MediFlow website
             </button>
           </motion.div>
         </div>
@@ -277,9 +277,9 @@ function ReceptionistLogin() {
           className="mx-auto w-full max-w-[26rem] pb-8 pt-2"
         >
           <div className="border-t border-slate-200 pt-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-            <p className="text-[11px] text-gray-500">Queue Cure Reception Portal · v1.0.0</p>
+            <p className="text-[11px] text-gray-500">MediFlow Reception Portal · v1.0.0</p>
             <p className="text-[11px] text-gray-500">
-              © {new Date().getFullYear()} Queue Cure
+              © {new Date().getFullYear()} MediFlow
             </p>
           </div>
         </motion.div>

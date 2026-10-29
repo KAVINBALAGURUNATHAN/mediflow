@@ -151,7 +151,7 @@ function Home() {
             className="lg:col-span-7"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary-600 mb-3">
-              Queue Cure
+              MediFlow
             </p>
             <h1 className="text-3xl sm:text-[42px] sm:leading-[1.1] font-semibold text-[#111827] tracking-tight mb-3">
               Find trusted doctors.
@@ -254,7 +254,7 @@ function Home() {
               <MapPin weight="duotone" className="w-5 h-5 text-primary-600" aria-hidden />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="font-semibold text-gray-900">Find your nearest Queue Cure branch</p>
+              <p className="font-semibold text-gray-900">Find your nearest MediFlow branch</p>
               <p className="text-sm text-gray-500 mt-0.5">
                 {branchesLoading ? "Loading branches…" : "Three demo clinics — Downtown, Riverside and Hillview."}
               </p>
@@ -424,7 +424,7 @@ function Home() {
         </div>
       </section>
 
-      {/* WHY CHOOSE QUEUE CURE */}
+      {/* WHY CHOOSE MEDIFLOW */}
       <section className="bg-white border-y border-gray-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -443,7 +443,7 @@ function Home() {
 
             <div className="lg:col-span-7">
               <h2 className="text-2xl font-semibold text-[#111827] tracking-tight mb-6">
-                Why Choose Queue Cure
+                Why Choose MediFlow
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {[

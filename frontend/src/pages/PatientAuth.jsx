@@ -8,8 +8,7 @@ import { useToast } from "../context/ToastContext";
 const EASE = [0.16, 1, 0.3, 1];
 
 // Renders Google's own GIS button rather than a custom trigger, as Google
-// requires. Unavailable in the Capacitor Android WebView (see .env.mobile),
-// so it degrades to nothing instead of erroring.
+// requires. Renders nothing when no client ID is configured.
 function GoogleAuthSection({ onLoggedIn, onNeedsPhone }) {
   const buttonRef = useRef(null);
   const toast = useToast();
@@ -366,9 +365,9 @@ function PatientAuth({ initialTab = "login" }) {
         >
           <Link to="/" className="inline-flex items-center gap-2 mb-6 group">
             <div className="w-8 h-8 rounded-lg bg-primary-600 flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
-              <span className="text-white font-bold text-xs">QC</span>
+              <span className="text-white font-bold text-xs">MF</span>
             </div>
-            <span className="text-lg font-semibold text-gray-900 tracking-tight">Queue Cure</span>
+            <span className="text-lg font-semibold text-gray-900 tracking-tight">MediFlow</span>
           </Link>
           <h1 className="text-[32px] sm:text-[36px] leading-[1.1] font-bold text-[#111827] tracking-tight">
             {tab === "login" ? "Welcome back" : "Create your account"}

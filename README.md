@@ -1,6 +1,6 @@
-# Queue Cure
+# MediFlow
 
-Queue Cure is a fictional multi-specialty clinic network, built as a portfolio
+MediFlow is a fictional multi-specialty clinic network, built as a portfolio
 project. All branch names, addresses and phone numbers are placeholder demo data.
 
 MERN outpatient appointment and clinical queue platform. Six independent
@@ -10,8 +10,7 @@ arrivals and no-shows.
 
 - **Backend:** Node/Express (CommonJS) + Mongoose/MongoDB Atlas, Socket.IO for
   live queue updates. Deployed on Render.
-- **Frontend:** React 18 + Vite (ESM) + Tailwind. Deployed on Vercel. Capacitor
-  wrapper for an Android build.
+- **Frontend:** React 18 + Vite (ESM) + Tailwind. Deployed on Vercel.
 
 ## Getting started
 

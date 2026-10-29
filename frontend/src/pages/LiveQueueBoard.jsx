@@ -194,7 +194,7 @@ const LiveQueueBoard = () => {
               Live Queue Display
             </p>
             <h1 className="text-[32px] sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
-              Queue Cure
+              MediFlow
             </h1>
             <p className="text-slate-500 dark:text-slate-400 mt-2">
               Please wait for your token number to be called.

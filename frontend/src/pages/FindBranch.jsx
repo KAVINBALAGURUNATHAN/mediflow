@@ -1,7 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate, useLocation, useSearchParams } from "react-router-dom";
-import { Capacitor } from "@capacitor/core";
-import { Geolocation } from "@capacitor/geolocation";
 import API from "../api/api";
 import PublicNav from "../components/PublicNav";
 import { useBranch } from "../context/BranchContext";
@@ -10,13 +8,13 @@ function formatBranchLabel(hospital) {
   return hospital.branch ? `${hospital.name} – ${hospital.branch}` : hospital.name;
 }
 
-// Entry point for "Book Appointment" - resolves which Queue Cure
+// Entry point for "Book Appointment" - resolves which MediFlow
 // branch (from the `Hospital` collection) the
 // patient should be routed into, using only the browser's built-in
 // navigator.geolocation API and a Haversine distance calculation done
 // server-side (GET /hospitals/nearest) - no Maps API, no paid API, no
 // hospital search field anywhere. There is exactly one decision a patient
-// ever makes here: which branch. The hospital itself (Queue Cure) is
+// ever makes here: which branch. The hospital itself (MediFlow) is
 // a given, never a choice.
 //
 // Forced light-only (no dark: classes), same convention as Home/Doctors -
@@ -46,14 +44,8 @@ function FindBranch() {
   const [nearest, setNearest] = useState(null);
   const [selectedManual, setSelectedManual] = useState("");
 
-  // `navigator.geolocation` exists inside the Capacitor WebView too, so
-  // feature-detecting it says nothing about whether location actually works
-  // there: without the native plugin nothing ever asks Android for the
-  // runtime permission, so every call fails. The native path below goes
-  // through the plugin, which requests the permission properly.
-  const isNative = Capacitor.isNativePlatform();
   const geolocationSupported =
-    isNative || (typeof navigator !== "undefined" && "geolocation" in navigator);
+    typeof navigator !== "undefined" && "geolocation" in navigator;
 
   const resolveNearest = useCallback(async (latitude, longitude) => {
     try {
@@ -78,28 +70,9 @@ function FindBranch() {
 
     setStage("locating");
 
-    // Matches the previous web behaviour: a 10s ceiling so a patient is never
-    // stuck on the spinner, and a 5min cache so re-entering this page doesn't
-    // re-prompt the GPS.
+    // A 10s ceiling so a patient is never stuck on the spinner, and a 5min
+    // cache so re-entering this page doesn't re-prompt the GPS.
     const options = { enableHighAccuracy: true, timeout: 10000, maximumAge: 300000 };
-
-    if (isNative) {
-      try {
-        const status = await Geolocation.requestPermissions({
-          permissions: ["location"],
-        });
-        if (status.location === "denied") {
-          setStage("manual");
-          return;
-        }
-        const position = await Geolocation.getCurrentPosition(options);
-        await resolveNearest(position.coords.latitude, position.coords.longitude);
-      } catch {
-        // Denied, timed out, or GPS unavailable - same fallback as the web.
-        setStage("manual");
-      }
-      return;
-    }
 
     navigator.geolocation.getCurrentPosition(
       (position) => resolveNearest(position.coords.latitude, position.coords.longitude),
@@ -110,7 +83,7 @@ function FindBranch() {
       },
       options
     );
-  }, [geolocationSupported, isNative, resolveNearest]);
+  }, [geolocationSupported, resolveNearest]);
 
   const confirmBranch = (hospital) => {
     setBranch(hospital);
@@ -131,10 +104,10 @@ function FindBranch() {
               </svg>
             </div>
             <h1 className="text-lg font-semibold text-gray-900 mb-1.5">
-              Allow Queue Cure to access your location?
+              Allow MediFlow to access your location?
             </h1>
             <p className="text-sm text-gray-500 mb-6">
-              We'll use it to automatically find your nearest Queue Cure branch.
+              We'll use it to automatically find your nearest MediFlow branch.
             </p>
             <div className="space-y-2.5">
               <button onClick={shareLocation} className="btn-primary w-full">

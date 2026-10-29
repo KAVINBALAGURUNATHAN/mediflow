@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-// Corporate header for the public Queue Cure site. Patients are
+// Corporate header for the public MediFlow site. Patients are
 // already on the hospital's own site, so doctor discovery lives on the
 // homepage itself (Top Departments / Featured Specialists) rather than a
 // separate "Find Doctors" nav item.
@@ -74,10 +74,10 @@ function PublicNav() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-2.5 shrink-0">
           <div className="w-8 h-8 rounded-lg bg-primary-600 flex items-center justify-center">
-            <span className="text-white font-bold text-xs">QC</span>
+            <span className="text-white font-bold text-xs">MF</span>
           </div>
           <div className="leading-tight hidden sm:block">
-            <p className="text-sm font-bold text-gray-900 tracking-tight">QUEUE CURE</p>
+            <p className="text-sm font-bold text-gray-900 tracking-tight">MEDIFLOW</p>
             <p className="text-[10px] font-medium text-gray-500 tracking-wide">Digital Appointment Platform</p>
           </div>
         </Link>

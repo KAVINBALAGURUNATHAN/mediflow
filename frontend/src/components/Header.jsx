@@ -79,12 +79,12 @@ const Header = ({ onMenuClick }) => {
           {/* Logo - the Sidebar carries this everywhere else; shown here
               only on the home page, which has no sidebar. */}
           {isHomePage && (
-            <Link to="/" className="flex items-center gap-3 group shrink-0" aria-label="Queue Cure home">
+            <Link to="/" className="flex items-center gap-3 group shrink-0" aria-label="MediFlow home">
               <div className="w-9 h-9 bg-primary-600 rounded-xl flex items-center justify-center group-hover:scale-105 transition duration-200">
                 <Heart weight="fill" className="w-5 h-5 text-white" aria-hidden="true" />
               </div>
               <span className="font-bold text-slate-900 dark:text-white text-sm tracking-tight hidden sm:block">
-                Queue Cure
+                MediFlow
               </span>
             </Link>
           )}
@@ -93,7 +93,7 @@ const Header = ({ onMenuClick }) => {
           {breadcrumb && (
             <nav aria-label="Breadcrumb" className="min-w-0 hidden sm:block">
               <ol className="flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 truncate">
-                <li className="font-medium">Queue Cure</li>
+                <li className="font-medium">MediFlow</li>
                 <li aria-hidden="true">/</li>
                 <li className="font-semibold text-slate-900 dark:text-slate-200 truncate">{breadcrumb}</li>
               </ol>

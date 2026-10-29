@@ -26,7 +26,7 @@ const RESEND_KEY = process.env.RESEND_API_KEY;
 const HAS_SMTP = Boolean(process.env.SMTP_USER && process.env.SMTP_PASS);
 const HAS_MAIL = Boolean(BREVO_KEY) || Boolean(RESEND_KEY) || HAS_SMTP;
 
-const BRAND = "Queue Cure";
+const BRAND = "MediFlow";
 
 // Resend will only deliver to arbitrary recipients once a sending domain is
 // verified; until then it accepts mail from its shared onboarding address.

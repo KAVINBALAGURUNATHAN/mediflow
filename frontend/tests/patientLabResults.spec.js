@@ -173,7 +173,7 @@ test.describe('patient lab results', () => {
     await expect(card).not.toContainText('Completed');
 
     // The reading's LABEL, not its value. Asserting on "95" matched the
-    // booking id printed on the same card - QC-1787595450783-3132 happens to
+    // booking id printed on the same card - MF-1787595450783-3132 happens to
     // contain it, because the id is built from a timestamp - so this failed
     // roughly whenever the clock cooperated, against a page that was
     // behaving correctly. A parameter name cannot collide with an id.

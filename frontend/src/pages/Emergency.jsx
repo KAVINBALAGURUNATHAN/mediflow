@@ -112,7 +112,7 @@ function Emergency() {
             </li>
             <li className="flex gap-2.5">
               <span className="text-primary-600 font-semibold">2.</span>
-              If you're able to travel safely, head to your nearest Queue Cure branch.
+              If you're able to travel safely, head to your nearest MediFlow branch.
             </li>
             <li className="flex gap-2.5">
               <span className="text-primary-600 font-semibold">3.</span>

@@ -36,7 +36,7 @@ function Contact() {
             Contact Us
           </h1>
           <p className="text-base text-[#6B7280] leading-relaxed max-w-2xl">
-            Reach out to any Queue Cure branch directly.
+            Reach out to any MediFlow branch directly.
           </p>
         </motion.div>
 

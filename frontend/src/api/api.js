@@ -1,11 +1,8 @@
 import axios from "axios";
 
-// Same env var as services/api.js/socket.js - "localhost" only works in a
-// browser on the same machine as the backend. In a Capacitor-built mobile
-// app, "localhost" means the phone itself, not the dev machine or server,
-// so this must point at a real reachable host (your machine's LAN IP
-// during development, or the deployed backend's URL in production) via
-// VITE_API_URL, set at build time (frontend/.env, not committed).
+// Same env var as services/api.js/socket.js. Points at the deployed backend
+// in production via VITE_API_URL, set at build time (frontend/.env, not
+// committed); falls back to the local dev server.
 const API = axios.create({
   baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000",
   headers: {

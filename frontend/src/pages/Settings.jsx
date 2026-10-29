@@ -234,7 +234,7 @@ function Settings() {
             </motion.section>
 
             <motion.p {...rise(4)} className="text-center text-sm text-slate-500 dark:text-slate-400">
-              Queue Cure Doctor Portal • Version 1.0
+              MediFlow Doctor Portal • Version 1.0
             </motion.p>
           </div>
         </div>

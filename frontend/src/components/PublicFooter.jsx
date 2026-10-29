@@ -20,12 +20,12 @@ function PublicFooter() {
         <div>
           <div className="flex items-center gap-2.5 mb-3">
             <div className="w-8 h-8 rounded-lg bg-primary-600 flex items-center justify-center">
-              <span className="text-white font-bold text-xs">QC</span>
+              <span className="text-white font-bold text-xs">MF</span>
             </div>
-            <p className="text-sm font-bold text-gray-900">QUEUE CURE</p>
+            <p className="text-sm font-bold text-gray-900">MEDIFLOW</p>
           </div>
           <p className="text-sm text-gray-500 leading-relaxed">
-            Digital appointment platform for Queue Cure's branches.
+            Digital appointment platform for MediFlow's branches.
           </p>
         </div>
 
@@ -42,7 +42,7 @@ function PublicFooter() {
         <div className="lg:col-span-2">
           <p className="text-xs font-semibold text-gray-900 uppercase tracking-wide mb-3">Our Branches</p>
           {branches.length === 0 ? (
-            <p className="text-sm text-gray-500">No Queue Cure branches are configured.</p>
+            <p className="text-sm text-gray-500">No MediFlow branches are configured.</p>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {branches.map((hospital) => (
@@ -60,7 +60,7 @@ function PublicFooter() {
       <div className="border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-xs text-gray-500">
-            © {new Date().getFullYear()} Queue Cure. All rights reserved.
+            © {new Date().getFullYear()} MediFlow. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <p className="text-xs text-gray-500">Medical emergency? Call 108.</p>

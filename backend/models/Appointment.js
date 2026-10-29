@@ -368,7 +368,7 @@ appointmentSchema.index({ patient: 1, appointmentDate: -1 });
 appointmentSchema.pre("validate", function () {
   if (!this.bookingId) {
     const random = Math.floor(1000 + Math.random() * 9000);
-    this.bookingId = `QC-${Date.now()}-${random}`;
+    this.bookingId = `MF-${Date.now()}-${random}`;
   }
 });
 

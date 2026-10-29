@@ -408,22 +408,6 @@ describe("cross-origin policy", () => {
     assert.equal(res.status, 403);
   });
 
-  // Capacitor's androidScheme defaults to https, so the installed Android app
-  // presents https://localhost. Leaving it out of the allowlist 403s every
-  // request the app makes while the browser build carries on working, which is
-  // exactly how it slipped through the first time.
-  for (const origin of [
-    "https://localhost",
-    "capacitor://localhost",
-    "ionic://localhost",
-    "http://localhost",
-  ]) {
-    test(`the native origin ${origin} is allowed`, async () => {
-      const res = await fetch(`${BASE}/hospitals`, { headers: { Origin: origin } });
-      assert.equal(res.status, 200);
-    });
-  }
-
   test("a request with no origin is allowed", async () => {
     const res = await fetch(`${BASE}/hospitals`);
     assert.equal(res.status, 200);

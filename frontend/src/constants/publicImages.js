@@ -10,8 +10,8 @@
 // branding is visible, and nothing is distressing (no trauma or
 // resuscitation scenes).
 //
-// Bundled locally rather than hot-linked so they also work in the Capacitor
-// Android build and never depend on a third-party CDN staying up.
+// Bundled locally rather than hot-linked so they never depend on a
+// third-party CDN staying up.
 //
 // There is deliberately no doctor-portrait helper: the Doctor model has no
 // photo field (see DoctorAvatar.jsx), and putting a stock face next to a

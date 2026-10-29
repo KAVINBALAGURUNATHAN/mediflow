@@ -1,7 +1,7 @@
-// Idempotent seed for the Queue Cure demo clinic network.
+// Idempotent seed for the MediFlow demo clinic network.
 // Run with: node scripts/seedDemoBranches.js
 //
-// Queue Cure is a fictional multi-specialty clinic network. Every branch,
+// MediFlow is a fictional multi-specialty clinic network. Every branch,
 // address and phone number below is a placeholder for demo purposes only and
 // does not belong to any real hospital or clinic.
 //
@@ -15,7 +15,7 @@ const Hospital = require("../models/Hospital");
 
 const DEMO_BRANCHES = [
   {
-    name: "Queue Cure",
+    name: "MediFlow",
     branch: "Downtown Clinic",
     address: "100 Demo Street (placeholder address)",
     city: "Demo City",
@@ -26,7 +26,7 @@ const DEMO_BRANCHES = [
     longitude: null,
   },
   {
-    name: "Queue Cure",
+    name: "MediFlow",
     branch: "Riverside Clinic",
     address: "200 Sample Avenue (placeholder address)",
     city: "Demo City",
@@ -37,7 +37,7 @@ const DEMO_BRANCHES = [
     longitude: null,
   },
   {
-    name: "Queue Cure",
+    name: "MediFlow",
     branch: "Hillview Clinic",
     address: "300 Example Road (placeholder address)",
     city: "Demo City",

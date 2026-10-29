@@ -1,10 +1,10 @@
-# Queue Cure — Project Instructions
+# MediFlow — Project Instructions
 
 MERN outpatient appointment and queue platform. Backend Node/Express
 (**CommonJS**) + Mongoose/MongoDB Atlas; frontend React 18 + Vite (**ESM**) +
-Tailwind. Capacitor Android wrapper. Backend on Render, frontend on Vercel.
+Tailwind. Backend on Render, frontend on Vercel.
 
-Queue Cure is a fictional multi-specialty clinic network used as a portfolio
+MediFlow is a fictional multi-specialty clinic network used as a portfolio
 project. All branch data is demo data (see `backend/scripts/seedDemoBranches.js`).
 
 ## Working rules

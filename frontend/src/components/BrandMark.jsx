@@ -1,4 +1,4 @@
-// Queue Cure mark: a simple icon tile in brand blue. Pure CSS + icon, so
+// MediFlow mark: a simple icon tile in brand blue. Pure CSS + icon, so
 // there is no logo image to load or go missing.
 import { Hospital } from "@phosphor-icons/react";
 

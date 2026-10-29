@@ -7,7 +7,7 @@ import { useRef } from "react";
 export default function useFirstMountThisSession(key) {
   const ref = useRef(null);
   if (ref.current === null) {
-    const storageKey = `qc-animated:${key}`;
+    const storageKey = `mf-animated:${key}`;
     const alreadyPlayed = sessionStorage.getItem(storageKey) === "1";
     ref.current = !alreadyPlayed;
     if (!alreadyPlayed) {

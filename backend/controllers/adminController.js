@@ -12,7 +12,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 
-// A Hospital document represents one branch (e.g. name="Queue Cure",
+// A Hospital document represents one branch (e.g. name="MediFlow",
 // branch="Downtown Clinic"). Every place that used to display just `hospital.name`
 // needs this instead, or two branches of the same hospital brand collapse
 // into the same label (and, worse, the same doctor.location string).
@@ -1466,7 +1466,7 @@ exports.createHospital = async (req, res) => {
     }
 
     // Duplicate check is on (name + branch) together, not name alone - one
-    // hospital brand (e.g. "Queue Cure") legitimately has multiple
+    // hospital brand (e.g. "MediFlow") legitimately has multiple
     // branch records ("Downtown Clinic", "Riverside Clinic") sharing the same name.
     const existing = await Hospital.findOne({
       name: new RegExp(`^${name.trim()}$`, "i"),
