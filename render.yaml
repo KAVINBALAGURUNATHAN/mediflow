@@ -8,7 +8,7 @@
 # dashboard instead of them living in this file.
 services:
   - type: web
-    name: queue-cure-api
+    name: queue-cure-platform-api
     runtime: node
     plan: free
     rootDir: backend
